@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Management System</title>
+  <link rel="shortcut icon" href="logo.png">
+  <link rel="stylesheet" href="Log in form.css">
+
+</head>
+
+<body>
+
+    <div class="logo">
+    <img src="logo.png" alt="logo">
+  </div>
+
+  <div class="log-in-card">
+    <form id="loginForm">
+      <h1>LOG IN</h1>
+
+      <div class="Input-box">
+        <input type="text" id="username" placeholder="Username" required>
+        <img class="user" src="user.png" alt="user">
+      </div>
+
+      <div class="Input-box">
+        <input type="password" id="password" placeholder="Password" required>
+        <img class="padlock" src="padlock.png" alt="Padlock">
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+
+      <div class="register-link">
+        <p>Don't have an account yet? <a href="#">Register</a></p>
+      </div>
+    </form>
+  </div>
+
+   <script>
+    
+    const users = {
+      student: { username: "Eijay", password: "12345" },
+      teacher: { username: "Teacher", password: "12345" }
+    };
+
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault(); 
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === users.student.username && password === users.student.password) {
+        alert("Login successful! Welcome Student.");
+        window.location.href = "student-dashboard.html";  
+      } 
+      else if (username === users.teacher.username && password === users.teacher.password) {
+        alert("Login successful! Welcome Teacher.");
+        window.location.href = "teacher-dashboard.html"; 
+      } 
+      else {
+        alert("Invalid username or password. Please try again.");
+      }
+    });
+  </script>
+
+</body>
+</html>
